@@ -1,5 +1,6 @@
 <template>
 <div>
+    {{edit === 0}}
     <div class="row">
         <div class="col-md-6">
             <form @submit.prevent="$emit('getData',initData)">
@@ -11,7 +12,7 @@
                     <label>Author</label>
                     <input type="text" class="form-control" v-model="initData.author">
                 </div>
-                <button type="submit" class="btn btn-primary">Add Book</button>
+                <button type="submit" class="btn btn-primary">{{ !edit ? "Add Book" : "Edit " + initData.name }}</button>
             </form>
         </div>
     </div>
@@ -21,7 +22,7 @@
 <script>
 export default {
     name: "form",
-    props:['initData'],
+    props:['initData','edit'],
 }
 </script>
 

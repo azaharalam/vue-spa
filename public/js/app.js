@@ -2132,9 +2132,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "form",
-  props: ['initData']
+  props: ['initData', 'edit']
 });
 
 /***/ }),
@@ -19878,7 +19879,7 @@ var render = function() {
       _c("h3", { staticClass: "text-center" }, [_vm._v("Add Book")]),
       _vm._v(" "),
       _c("form-component", {
-        attrs: { initData: _vm.book },
+        attrs: { edit: false, initData: _vm.book },
         on: { getData: _vm.initDataAndSubmit }
       })
     ],
@@ -20014,7 +20015,7 @@ var render = function() {
       _c("h3", { staticClass: "text-center" }, [_vm._v("Edit Book")]),
       _vm._v(" "),
       _c("form-component", {
-        attrs: { initData: _vm.book },
+        attrs: { edit: true, initData: _vm.book },
         on: { getData: _vm.initDataAndEdit }
       })
     ],
@@ -20044,6 +20045,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _vm._v("\n    " + _vm._s(_vm.edit === 0) + "\n    "),
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-md-6" }, [
         _c(
@@ -20112,7 +20114,11 @@ var render = function() {
             _c(
               "button",
               { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-              [_vm._v("Add Book")]
+              [
+                _vm._v(
+                  _vm._s(!_vm.edit ? "Add Book" : "Edit " + _vm.initData.name)
+                )
+              ]
             )
           ]
         )

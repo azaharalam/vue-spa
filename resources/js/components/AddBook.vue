@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 class="text-center">Add Book</h3>
-        <form-component :initData="book" v-on:getData="initDataAndSubmit">
+        <form-component :edit="false" :initData="book" v-on:getData="initDataAndSubmit">
 
         </form-component>
     </div>
